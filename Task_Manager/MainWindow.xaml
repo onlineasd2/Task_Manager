@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Task Manager" Height="450" Width="800" WindowStyle="None">
     <Grid>
-
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,72,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Image HorizontalAlignment="Right" MouseDown="btnExit" Height="28" Width="28" VerticalAlignment="Top" Margin="0,8,8,0" Source="/close (1) 1.png" Cursor="Hand" />
+        <Image HorizontalAlignment="Left" MouseDown="addTask" Height="32" Width="32" VerticalAlignment="Top" Margin="30,22,0,0" Source="/Add.png" Cursor="Hand" />
+        <Image HorizontalAlignment="Left" MouseDown="callCalc" Height="32" Width="32" VerticalAlignment="Top" Margin="80,22,0,0" Source="/Calculator (1).png" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" MouseDown="openStat" Height="32" Width="32" VerticalAlignment="Top" Margin="130,22,0,0" Source="/Calculator (2).png" Cursor="Hand" />
     </Grid>
 </Window>
