@@ -34,16 +34,13 @@ namespace Task_Manager
 
             using var db = new ContextTask(options);
 
-            // Подключение к базе данных
+            // Создание базы данных
             db.Database.EnsureCreated();
 
             // Вывод в таблицу данных из БД
             TaskListXML.ItemsSource = db.STasks.ToList();
 
             GroupByXML.ItemsSource = new string[] { "None", "Date", "Priority", "Deadline" };
-
-            // Сохранине изменений в БД
-            //db.SaveChanges();
 
         }
 

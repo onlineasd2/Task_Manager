@@ -9,9 +9,11 @@
         mc:Ignorable="d"
         Title="TaskAdd" Height="350" Width="650" WindowStyle="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="650" MaxHeight="350" MinHeight="350" HorizontalContentAlignment="Center" MaxWidth="651" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid Height="332" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        <TextBox Name="TextBox_Task" HorizontalAlignment="Center" materialDesign:HintAssist.Hint="Новая задача" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="555" Height="68" FontSize="18" CaretBrush="#FF446EC1" SelectionBrush="#FF446EC1"/>
-        <Label Content="Добавить Задачу" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Name="TextBox_Task" HorizontalAlignment="Center" materialDesign:HintAssist.Hint="Новая задача" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="554" Height="68" FontSize="18" CaretBrush="#FF446EC1" SelectionBrush="#FF446EC1" Margin="0,114,0,0"/>
+        <Label Content="Добавить Задачу" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Image HorizontalAlignment="Right" MouseDown="btnExit" Height="28" Width="28" VerticalAlignment="Top" Margin="0,8,8,0" Source="/close (1) 1.png" Cursor="Hand" />
-        <Button Content="Добавить" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignFlatDarkBgButton}" VerticalAlignment="Top" Width="226" Margin="0,270,0,0" Height="34" Background="#FF8744C1" BorderBrush="#FF1F3B71"/>
+        <Button Content="Добавить" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignFlatDarkBgButton}" VerticalAlignment="Top" Width="226" Margin="0,270,0,0" Height="34" Background="#FF8744C1" BorderBrush="#FF1F3B71" Click="AddTask_btn"/>
+        <ComboBox Name="priorityXML" HorizontalAlignment="Left" Margin="48,204,0,0" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Name="deadlineXML" HorizontalAlignment="Left" Margin="502,203,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
