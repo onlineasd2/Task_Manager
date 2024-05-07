@@ -10,17 +10,30 @@
         <ListView x:Name="TaskListXML" Margin="0,72,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="title" DisplayMemberBinding="{Binding Title}" Width="350"/>
-                    <GridViewColumn Header="date" DisplayMemberBinding="{Binding Date}" Width="80"/>
-                    <GridViewColumn Header="status" DisplayMemberBinding="{Binding Status}" Width="80"/>
+                    <GridViewColumn Header="title" DisplayMemberBinding="{Binding Title}" Width="450"/>
                     <GridViewColumn Header="priority" DisplayMemberBinding="{Binding Priority}" Width="80"/>
+                    <GridViewColumn Header="date" DisplayMemberBinding="{Binding Date}" Width="80"/>
                     <GridViewColumn Header="deadline" DisplayMemberBinding="{Binding Deadline}" Width="80"/>
                 </GridView>
             </ListView.View>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Name}" Background="AliceBlue" Foreground="Black" BorderBrush="Aqua" BorderThickness="1"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
         </ListView>
-        <Image HorizontalAlignment="Right" MouseDown="btnExit" Height="28" Width="28" VerticalAlignment="Top" Margin="0,8,8,0" Source="/close (1) 1.png" Cursor="Hand" />
+        
+
+            <Image HorizontalAlignment="Right" MouseDown="btnExit" Height="28" Width="28" VerticalAlignment="Top" Margin="0,8,8,0" Source="/close (1) 1.png" Cursor="Hand" />
         <Image HorizontalAlignment="Left" MouseDown="addTask" Height="32" Width="32" VerticalAlignment="Top" Margin="30,22,0,0" Source="/Add.png" Cursor="Hand" />
         <Image HorizontalAlignment="Left" MouseDown="callCalc" Height="32" Width="32" VerticalAlignment="Top" Margin="80,22,0,0" Source="/Calculator (1).png" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" MouseDown="openStat" Height="32" Width="32" VerticalAlignment="Top" Margin="130,22,0,0" Source="/Calculator (2).png" Cursor="Hand" />
+        <ComboBox Name="GroupByXML" SelectionChanged="ChangeGroupBy" HorizontalAlignment="Left" Margin="196,35,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Фильтр" HorizontalAlignment="Left" Margin="266,12,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

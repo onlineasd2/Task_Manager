@@ -14,6 +14,7 @@ using System.Numerics;
 using System.Collections.Generic;
 using static MaterialDesignThemes.Wpf.Theme.ToolBar;
 using System.Text.RegularExpressions;
+using System.ComponentModel;
 
 namespace Task_Manager
 {
@@ -39,8 +40,23 @@ namespace Task_Manager
             // Вывод в таблицу данных из БД
             TaskListXML.ItemsSource = db.STasks.ToList();
 
+            GroupByXML.ItemsSource = new string[] { "None", "Date", "Priority", "Deadline" };
+
             // Сохранине изменений в БД
             //db.SaveChanges();
+
+        }
+
+        public void GroupList()
+        {
+            TaskListXML.Items.GroupDescriptions.Clear();
+            var property = GroupByXML.SelectedItem as string;
+
+            if (property == "None")
+            {
+                return;
+            }
+            TaskListXML.Items.GroupDescriptions.Add(new PropertyGroupDescription(property));
 
         }
 
@@ -53,16 +69,14 @@ namespace Task_Manager
                 {
                     Title = "ASD",
                     Date = "07.05.2024",
-                    Status = "Важный",
-                    Priority = 0,
+                    Priority = "Высокий",
                     Deadline = "15.05.2024"
                 },
                 new STask()
                 {
                     Title = "DDD",
                     Date = "04.05.2024",
-                    Status = "Важный",
-                    Priority = 0,
+                    Priority = "Средний",
                     Deadline = "10.05.2024"
                 },
             };
@@ -104,5 +118,11 @@ namespace Task_Manager
             // Begin dragging the window
             this.DragMove();
         }
+        // Групировка при изменнеии ComboBox
+        protected void ChangeGroupBy(object sender, SelectionChangedEventArgs e)
+        {
+            GroupList();
+        }
+        
     }
 }

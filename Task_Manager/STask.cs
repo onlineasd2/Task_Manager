@@ -12,8 +12,7 @@ namespace Task_Manager
         public int Id { get; set; }
         public string Title { get; set; }
         public string Date { get; set; }
-        public string Status { get; set; }
-        public int Priority { get; set; }
+        public string Priority { get; set; }
         public string Deadline { get; set; }
 
     }
