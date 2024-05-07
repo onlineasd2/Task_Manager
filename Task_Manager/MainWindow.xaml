@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="Task Manager" Height="450" Width="800" WindowStyle="None">
     <Grid>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,72,0,0">
+        <ListView x:Name="TaskListXML" Margin="0,72,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="title" DisplayMemberBinding="{Binding Title}" Width="350"/>
+                    <GridViewColumn Header="date" DisplayMemberBinding="{Binding Date}" Width="80"/>
+                    <GridViewColumn Header="status" DisplayMemberBinding="{Binding Status}" Width="80"/>
+                    <GridViewColumn Header="priority" DisplayMemberBinding="{Binding Priority}" Width="80"/>
+                    <GridViewColumn Header="deadline" DisplayMemberBinding="{Binding Deadline}" Width="80"/>
                 </GridView>
             </ListView.View>
         </ListView>

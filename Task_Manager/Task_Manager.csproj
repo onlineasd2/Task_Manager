@@ -17,6 +17,10 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +28,12 @@
     <Resource Include="Calculator (1).png" />
     <Resource Include="Calculator (2).png" />
     <Resource Include="close (1) 1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="task_bd.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

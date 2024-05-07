@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Task_Manager
 {
@@ -9,6 +10,7 @@ namespace Task_Manager
     /// </summary>
     public partial class App : Application
     {
+
     }
 
 }
