@@ -44,6 +44,7 @@ namespace Task_Manager
 
         }
 
+        // Вывод группировки в List View
         public void GroupList()
         {
             TaskListXML.Items.GroupDescriptions.Clear();
@@ -57,30 +58,6 @@ namespace Task_Manager
 
         }
 
-        // Тестовые данные
-        public List<STask> CreateFakeData()
-        {
-            List<STask> sTasks = new List<STask>()
-            {
-                new STask()
-                {
-                    Title = "ASD",
-                    Date = "07.05.2024",
-                    Priority = "Высокий",
-                    Deadline = "15.05.2024"
-                },
-                new STask()
-                {
-                    Title = "DDD",
-                    Date = "04.05.2024",
-                    Priority = "Средний",
-                    Deadline = "10.05.2024"
-                },
-            };
-
-            return sTasks;
-        }
-
     // Закрыть приложение
     // Сделать условие вы точно хотите выйти из программы ?
     private void btnExit(object sender, MouseEventArgs e)
@@ -91,7 +68,7 @@ namespace Task_Manager
         // Добавить Задачу
         private void addTask(object sender, MouseEventArgs e)
         {
-            TaskAdd taskAdd = new TaskAdd();
+            TaskAdd taskAdd = new TaskAdd(this);
             taskAdd.Show();
         }
 
@@ -99,6 +76,28 @@ namespace Task_Manager
         private void callCalc(object sender, MouseEventArgs e)
         {
             System.Diagnostics.Process.Start("calc");
+        }
+
+        
+        // Удалить задачу
+        private void deleteTask(object sender, MouseEventArgs e)
+        {
+
+        }
+        // Обновление таблицы
+        public void UpdateListView ()
+        {
+            // Настройки файла БД ENTITY FRAMEWORK
+            var options = new DbContextOptionsBuilder<ContextTask>()
+                .UseSqlite("Filename=../../../STask.db")
+                .Options;
+
+            using var db = new ContextTask(options);
+
+            // Вывод в таблицу данных из БД
+            TaskListXML.ItemsSource = db.STasks.ToList();
+
+            TaskAdd taskAdd = new TaskAdd(this);
         }
 
         // Открыть статистику
@@ -113,13 +112,13 @@ namespace Task_Manager
             base.OnMouseLeftButtonDown(e);
 
             // Begin dragging the window
-            this.DragMove();
+            //this.DragMove();
         }
         // Групировка при изменнеии ComboBox
         protected void ChangeGroupBy(object sender, SelectionChangedEventArgs e)
         {
             GroupList();
         }
-        
+
     }
 }
