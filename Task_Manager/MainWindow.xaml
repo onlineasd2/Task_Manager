@@ -29,12 +29,12 @@
         </ListView>
 
 
-        <Image HorizontalAlignment="Right" MouseDown="btnExit" Height="28" Width="28" VerticalAlignment="Top" Margin="0,8,8,0" Source="/close (1) 1.png" Cursor="Hand" />
-        <Image HorizontalAlignment="Left" MouseDown="addTask" Height="32" Width="32" VerticalAlignment="Top" Margin="30,22,0,0" Source="/Add.png" Cursor="Hand" />
-        <Image HorizontalAlignment="Left" MouseDown="callCalc" Height="32" Width="32" VerticalAlignment="Top" Margin="80,22,0,0" Source="/Calculator (1).png" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" MouseDown="openStat" Height="32" Width="32" VerticalAlignment="Top" Margin="130,22,0,0" Source="/Calculator (2).png" Cursor="Hand" />
+        <Image HorizontalAlignment="Right" MouseDown="btnExit" Height="28" Width="28" VerticalAlignment="Top" Margin="0,8,8,0" Source="/free-icon-cross-button-8867452.png" Cursor="Hand" />
+        <Image HorizontalAlignment="Left" MouseDown="addTask" Height="32" Width="32" VerticalAlignment="Top" Margin="30,22,0,0" Source="/free-icon-plus-5859847.png" Cursor="Hand" />
+        <Image HorizontalAlignment="Left" MouseDown="callCalc" Height="32" Width="32" VerticalAlignment="Top" Margin="80,22,0,0" Source="/free-icon-calculator-181567.png" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" MouseDown="openStat" Height="32" Width="32" VerticalAlignment="Top" Margin="130,22,0,0" Source="/free-icon-graph-4120566.png" Cursor="Hand" />
         <ComboBox Name="GroupByXML" SelectionChanged="ChangeGroupBy" HorizontalAlignment="Left" Margin="196,35,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Фильтр" HorizontalAlignment="Left" Margin="266,12,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" MouseDown="deleteTask" Height="32" Width="32" VerticalAlignment="Top" Margin="344,22,0,0" Source="/Add.png" Cursor="Hand" />
+        <Image HorizontalAlignment="Left" MouseDown="deleteTask" Height="32" Width="32" VerticalAlignment="Top" Margin="344,22,0,0" Source="/free-icon-trash-4692106.png" Cursor="Hand" />
     </Grid>
 </Window>

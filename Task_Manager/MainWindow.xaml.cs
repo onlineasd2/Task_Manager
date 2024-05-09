@@ -39,7 +39,6 @@ namespace Task_Manager
 
             // Вывод в таблицу данных из БД
             TaskListXML.ItemsSource = db.STasks.ToList();
-
             GroupByXML.ItemsSource = new string[] { "None", "Date", "Priority", "Deadline" };
 
         }
@@ -84,6 +83,7 @@ namespace Task_Manager
         {
 
         }
+
         // Обновление таблицы
         public void UpdateListView ()
         {

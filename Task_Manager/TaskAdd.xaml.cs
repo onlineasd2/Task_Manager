@@ -21,8 +21,6 @@ namespace Task_Manager
     /// </summary>
     public partial class TaskAdd : Window
     {
-
-
         MainWindow mainWindow;
         public TaskAdd(MainWindow mf)
         {
@@ -32,6 +30,9 @@ namespace Task_Manager
 
             priorityXML.ItemsSource = priorityTask;
             priorityXML.SelectedItem = priorityTask[0]; // Ставим первый элемент чтобы не было null в combobox
+
+            // Устанавливаем сегодняшнюю дату в дедлайне
+            deadlineXML.SelectedDate = DateTime.Now.Date;
 
             this.mainWindow = mf;
         }
@@ -50,15 +51,13 @@ namespace Task_Manager
         }
 
         private void AddTask_btn(object sender, RoutedEventArgs e)
-        {           
-            
+        {
             // Настройки файла БД ENTITY FRAMEWORK
             var options = new DbContextOptionsBuilder<ContextTask>()
                 .UseSqlite("Filename=../../../STask.db")
                 .Options;
 
             using var db = new ContextTask(options);
-
 
             // Создаем задание
             // Получаем из TextBox строку
@@ -71,31 +70,30 @@ namespace Task_Manager
             string priorityTask = priorityXML.SelectedItem.ToString();
 
             // Ставим дедлайн
-            deadlineXML.SelectedDate = DateTime.Now.Date;
             var deadLineTemp = deadlineXML.SelectedDate;
             string deadLine = deadLineTemp.Value.Day.ToString() + "." + deadLineTemp.Value.Month.ToString() + "." + deadLineTemp.Value.Year.ToString();
+  
+            //MessageBox.Show(deadLine);
 
-
+            // Создаем поля для экспорта в БД
+            var task = new STask()
+            {
+                Title = taskTitle,
+                Date = date,
+                Priority = priorityTask,
+                Deadline = deadLine
+            };
 
             if (taskTitle != "")
             {
-                // Создаем поля для экспорта в БД
-                var task = new STask()
-                {
-                    Title = taskTitle,
-                    Date = date,
-                    Priority = priorityTask,
-                    Deadline = deadLine
-                };
-
                 // Добавление в БД задание
                 db.STasks.Add(task);
                 // Сохранине изменений в БД
                 db.SaveChanges();
 
-                //this.Close();
-
                 mainWindow.UpdateListView();
+
+                this.Close();
             }
             else
                 MessageBox.Show("Заполните поля!");
